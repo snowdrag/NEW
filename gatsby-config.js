@@ -7,10 +7,15 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-strapi',
       options: {
-        name: `posts`,
-        path: `${__dirname}/src/posts`,
+        apiURL: 'http://data.tampopo.club',
+        contentTypes: [
+          'post',
+          'personal-news',
+        ],
+        singleTypes: [`about`],
+        queryLimit: 1000,
       },
     },
     {
