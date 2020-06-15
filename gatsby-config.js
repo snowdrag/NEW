@@ -11,9 +11,18 @@ module.exports = {
       resolve: "gatsby-source-strapi",
       options: {
         apiURL: "https://yulinhuang-data.herokuapp.com",
-        contentTypes: ["post", "personal-new s"],
+        contentTypes: ["post", "personal-news"],
         singleTypes: [`about`],
         queryLimit: 1000,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        postCssPlugins: [
+          require("tailwindcss"),
+          require("./tailwind.config.js"),
+        ],
       },
     },
     {
