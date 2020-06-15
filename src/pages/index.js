@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 // import Image from "../components/image"
@@ -9,16 +10,15 @@ const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" />
 
-    <h1>Yulin Huang</h1>
-    <p>欢迎到我的主页.</p>
-
-    <h2>Latest Posts</h2>
+    <h3>Latest Posts from me</h3>
     <ul>
-      {data.allStrapiPost.edges.map(document => (
-        <li key={document.node.id}>
-          <h2>
-            <Link to={`/${document.node.id}`}>{document.node.title}</Link>
-          </h2>
+      {data.allStrapiPost.edges.map(edge => (
+        <li key={edge.node.id}>
+          <h4>
+            <Link to={`/post/${edge.node.slug || edge.node.id}`}>
+              {edge.node.title}
+            </Link>
+          </h4>
         </li>
       ))}
     </ul>
@@ -27,7 +27,6 @@ const IndexPage = ({ data }) => (
 
 export default IndexPage
 
-
 export const pageQuery = graphql`
   query IndexQuery {
     allStrapiPost {
@@ -35,6 +34,7 @@ export const pageQuery = graphql`
         node {
           id
           title
+          slug
           body
         }
       }

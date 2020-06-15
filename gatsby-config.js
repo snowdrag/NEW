@@ -1,19 +1,17 @@
 module.exports = {
   siteMetadata: {
     title: `Yulin Huang`,
+    subTitle: "Editor of Artivist Coop, COOP Design, and Synchronicity",
     description: ``,
-    author: `@gatsbyjs`,
+    author: `Yulin Huang`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
-      resolve: 'gatsby-source-strapi',
+      resolve: "gatsby-source-strapi",
       options: {
-        apiURL: 'https://yulinhuang-data.herokuapp.com',
-        contentTypes: [
-          'post',
-          'personal-news',
-        ],
+        apiURL: "https://yulinhuang-data.herokuapp.com",
+        contentTypes: ["post", "personal-new s"],
         singleTypes: [`about`],
         queryLimit: 1000,
       },

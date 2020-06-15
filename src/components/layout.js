@@ -18,14 +18,17 @@ const Layout = ({ children }) => {
       site {
         siteMetadata {
           title
+          subTitle
         }
       }
     }
   `)
 
+  const { title, subTitle } = data.site.siteMetadata
+
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <Header siteTitle={title} subTitle={subTitle} />
       <div
         style={{
           margin: `0 auto`,
@@ -35,7 +38,7 @@ const Layout = ({ children }) => {
       >
         <main>{children}</main>
         <footer>
-          <a href="https://www.yulinhuang.com">Send me email</a>
+          <a href="https://www.yulinhuang.com">Yulin Huang</a> 2019 ~ 2020
         </footer>
       </div>
     </>
