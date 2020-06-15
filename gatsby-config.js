@@ -9,7 +9,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-strapi',
       options: {
-        apiURL: 'http://data.tampopo.club',
+        apiURL: 'https://yulinhuang-data.herokuapp.com',
         contentTypes: [
           'post',
           'personal-news',

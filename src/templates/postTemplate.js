@@ -1,8 +1,10 @@
 import React from "react"
 import { graphql } from "gatsby"
 
+import ReactMarkdown from "react-markdown"
+
 export default function Template({
-  data, // this prop will be injected by the GraphQL query below.
+  data,
 }) {
   const { strapiPost } = data // data.markdownRemark holds your post data
   const { title, body, createdAt } = strapiPost
@@ -12,21 +14,20 @@ export default function Template({
       <div className="blog-post">
         <h1>{title}</h1>
         <h2>{createdAt}</h2>
-        <div
-          className="blog-post-content"
-          dangerouslySetInnerHTML={{ __html: body }}
-        />
+
+        <ReactMarkdown source={body} />
       </div>
     </div>
   )
 }
+
 export const pageQuery = graphql`
   query($id: String!) {
     strapiPost(id: { eq: $id }) {
       id
       title
       body
-      created_at(formatString: "MMMM DD, YYYY")
+      createdAt(formatString: "MMMM DD, YYYY")
     }
   }
 `

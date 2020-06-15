@@ -6,7 +6,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     const result = await graphql(`
       {
         allStrapiPost(
-          sort: { order: DESC, fields: [created_at] }
+          sort: { order: DESC, fields: [createdAt] }
           limit: 1000
         ) {
           edges {
