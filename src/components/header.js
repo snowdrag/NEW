@@ -33,7 +33,6 @@ const Header = ({ siteTitle, subTitle }) => (
           About
         </button>
       </Link>
-
     </div>
   </header>
 )
