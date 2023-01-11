@@ -24,7 +24,7 @@
     "tailwindcss": "^1.4.6"
   },
   "devDependencies": {
-    "gatsby-transformer-remark": "^2.8.7",
+    "gatsby-transformer-remark": "^5.25.1",
     "prettier": "2.0.5"
   },
   "keywords": [
